@@ -21,20 +21,20 @@ const FirstNavbar = () => {
 
   return (
     <>
-      <div className="bg-[#FFC13C] ">
-        <div className="">
+      <div className="bg-[#FFC13C] py-3 px-4 md:px-5 lg:px-8 shadow-none">
+        <div className="max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
           {/* Desktop View */}
-          <div className="h ">
+          <div className="hidden md:flex justify-between ">
             {/* Left Side - Contact Info */}
-            <div className="">
+            <div className="flex gap-6 md:gap-8 items-center mr-6">
               <span
-                className=" text-gray-800 hover:text-[#800000] transition-colors" 
+                className="text-sm text-gray-800 hover:text-[#800000] transition-colors" 
               >
                 +91 99873 18251
               </span>
               <a
                 href="mailto:info@simplevedas.com"
-                className=" text-gray-800 hover:text-[#800000] transition-colors"
+                className="text-sm text-gray-800 hover:text-[#800000] transition-colors"
               >
                 info@simplevedas.com
               </a>
@@ -42,54 +42,54 @@ const FirstNavbar = () => {
 
             {/* Right Side - Login/Register/Support or Logout/Support */}
             {!isLoggedIn ? (
-              <div className="">
+              <div className="flex gap-10 items-center mr-1">
                 {/* Login */}
                 <div
-                  className=" cursor-pointer hover:opacity-80 transition-opacity"
+                  className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={handleLoginOpen}
                 >
-                  <LockClosedIcon className=" text-[#800000]" />
-                  <span className=" text-[#800000] cursor-pointer">
+                  <LockClosedIcon className="w-4 h-4 text-[#800000]" />
+                  <span className="text-sm text-[#800000] cursor-pointer">
                     Login
                   </span>
                 </div>
 
                 {/* Register */}
                 <div
-                  className=" cursor-pointer hover:opacity-80 transition-opacity"
+                  className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={handleRegisterOpen}
                 >
-                  <KeyIcon className=" text-gray-800" />
-                  <span className=" text-gray-800 cursor-pointer">
+                  <KeyIcon className="w-4 h-4 text-gray-800" />
+                  <span className="text-sm text-gray-800 cursor-pointer">
                     Register
                   </span>
                 </div>
 
                 {/* Support Us */}
-                <div className=" cursor-pointer hover:opacity-80 transition-opacity">
-                  <HeartIcon className=" text-[#800000]" />
-                  <span className=" text-[#800000] cursor-pointer ">
+                <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+                  <HeartIcon className="w-4 h-4 text-[#800000]" />
+                  <span className="text-sm text-[#800000] cursor-pointer font-medium">
                     Support Us
                   </span>
                 </div>
               </div>
             ) : (
-              <div className="">
+              <div className="flex gap-10 items-center">
                 {/* Logout */}
                 <div
-                  className=" cursor-pointer hover:opacity-80 transition-opacity"
+                  className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
                   onClick={handleLogout}
                 >
-                  <LockOpenIcon className=" text-gray-800" />
-                  <span className=" text-gray-800 cursor-pointer">
+                  <LockOpenIcon className="w-4 h-4 text-gray-800" />
+                  <span className="text-sm text-gray-800 cursor-pointer">
                     Logout
                   </span>
                 </div>
 
                 {/* Support Us */}
-                <div className=" cursor-pointer hover:opacity-80 transition-opacity">
-                  <HeartIcon className=" text-[#800000]" />
-                  <span className=" text-[#800000] cursor-pointer ">
+                <div className="flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+                  <HeartIcon className="w-4 h-4 text-[#800000]" />
+                  <span className="text-sm text-[#800000] cursor-pointer font-medium">
                     Support Us
                   </span>
                 </div>
@@ -174,7 +174,7 @@ const FirstNavbar = () => {
         </div>
       </div>
 
-
+      
     </>
   );
 };
