@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Search, ShoppingCart, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import './Navbar.css';
 
 interface NavItem {
   label: string;
@@ -56,30 +57,30 @@ interface DesktopDropdownProps {
 
 // Desktop dropdown component
 const DesktopDropdown: React.FC<DesktopDropdownProps> = ({ items, nested = false, isMedia = false }) => (
-  <div className={`absolute ${nested ? 'left-full top-0' : 'left-0 top-full'} ${isMedia ? 'min-w-[110px]' : 'min-w-[180px]'} bg-black shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-gray-700`}>
+  <div className={`dropdown ${nested ? 'dropdown-nested' : 'dropdown-main'} ${isMedia ? 'dropdown-media' : 'dropdown-regular'}`}>
     {items.map((item, i) => (
       item.children ? (
-        <div key={i} className="relative group/sub">
-          <div className="flex items-center justify-between px-4 py-3 text-xs font-semibold text-white hover:text-yellow-500 border-b border-gray-700 cursor-pointer">
+        <div key={i} className="dropdown-item-with-sub">
+          <div className="dropdown-item-label">
             {item.label} <ChevronRight size={12} />
           </div>
-          <div className={`absolute left-full top-0 -mt-[1px] ${isMedia ? 'min-w-[110px]' : 'min-w-[180px]'} bg-black shadow-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all border border-gray-700`}>
+          <div className={`dropdown-submenu ${isMedia ? 'dropdown-media' : 'dropdown-regular'}`}>
             {item.children.map((sub, j) => (
               sub.children ? (
-                <div key={j} className="relative group/deep">
-                  <div className="flex items-center justify-between px-4 py-3 text-xs font-semibold text-white hover:text-yellow-500 border-b border-gray-700 cursor-pointer">
+                <div key={j} className="dropdown-item-with-sub">
+                  <div className="dropdown-item-label">
                     {sub.label} <ChevronRight size={12} />
                   </div>
-                  <div className={`absolute left-full top-0 -mt-[1px] ${isMedia ? 'min-w-[110px]' : 'min-w-[180px]'} bg-black shadow-lg opacity-0 invisible group-hover/deep:opacity-100 group-hover/deep:visible transition-all border border-gray-700`}>
+                  <div className={`dropdown-deep ${isMedia ? 'dropdown-media' : 'dropdown-regular'}`}>
                     {sub.children.map((deep, k) => (
-                      <Link key={k} to={deep.to || '#'} className="block px-4 py-3 text-xs font-semibold text-white hover:text-yellow-500 border-b border-gray-700 last:border-0">
+                      <Link key={k} to={deep.to || '#'} className="dropdown-link">
                         {deep.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={j} to={sub.to || '#'} className="block px-4 py-3 text-xs font-semibold text-white hover:text-yellow-500 border-b border-gray-700 last:border-0">
+                <Link key={j} to={sub.to || '#'} className="dropdown-link">
                   {sub.label}
                 </Link>
               )
@@ -87,7 +88,7 @@ const DesktopDropdown: React.FC<DesktopDropdownProps> = ({ items, nested = false
           </div>
         </div>
       ) : (
-        <Link key={i} to={item.to || '#'} className="block px-4 py-3 text-xs font-semibold text-white hover:text-yellow-500 border-b border-gray-700 last:border-0">
+        <Link key={i} to={item.to || '#'} className="dropdown-link">
           {item.label}
         </Link>
       )
@@ -107,19 +108,19 @@ const MobileAccordion: React.FC<MobileAccordionProps> = ({ items, onClose, depth
   const toggle = (i: number) => setOpen(prev => ({ ...prev, [i]: !prev[i] }));
 
   return (
-    <div className={depth > 0 ? 'pl-4 pt-1' : ''}>
+    <div className={depth > 0 ? 'accordion-nested' : ''}>
       {items.map((item, i) => (
         <div key={i}>
           {item.children ? (
             <>
-              <button onClick={() => toggle(i)} className="w-full flex items-center justify-between py-2 px-3 text-white hover:text-yellow-500">
+              <button onClick={() => toggle(i)} className="accordion-button">
                 {item.label}
-                <ChevronDown size={16} className={`transition-transform ${open[i] ? 'rotate-180' : ''}`} />
+                <ChevronDown size={16} className={open[i] ? 'chevron-rotated' : 'chevron-normal'} />
               </button>
               {open[i] && <MobileAccordion items={item.children} onClose={onClose} depth={depth + 1} />}
             </>
           ) : (
-            <Link to={item.to || '#'} onClick={onClose} className="block py-2 px-3 text-white hover:text-yellow-500">
+            <Link to={item.to || '#'} onClick={onClose} className="accordion-link">
               {item.label}
             </Link>
           )}
@@ -139,28 +140,34 @@ const Navbar: React.FC = () => {
   const logo = "https://i0.wp.com/simplevedas.com/wp-content/uploads/2022/02/logo-of-simple-vedas.png?w=562&ssl=1";
 
   return (
-    <nav className="bg-white shadow-none relative z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/"><img src={logo} alt="Simple Vedas" className="h-14" /></Link>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-content">
+          <Link to="/">
+            <img src={logo} alt="Simple Vedas" className="navbar-logo" />
+          </Link>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="navbar-desktop">
             {NAV_ITEMS.map((item, i) => (
-              <div key={i} className="relative group">
-                <Link to={item.to || '#'} className={`px-3 py-2 text-sm font-medium inline-flex items-center gap-1 ${isActive(item.to) ? 'text-red-800' : 'text-gray-700 hover:text-yellow-500'}`}>
+              <div key={i} className="nav-item-wrapper">
+                <Link to={item.to || '#'} className={`nav-link ${isActive(item.to) ? 'nav-link-active' : ''}`}>
                   {item.label}
                   {item.children && <ChevronDown size={14} />}
                 </Link>
                 {item.children && <DesktopDropdown items={item.children} isMedia={item.isMedia} />}
               </div>
             ))}
-            <Link to="#" className="p-2 text-gray-700 hover:text-yellow-500"><Search size={20} /></Link>
-            <Link to="#" className="p-2 text-gray-700 hover:text-yellow-500"><ShoppingCart size={20} /></Link>
+            <Link to="#" className="nav-icon">
+              <Search size={20} />
+            </Link>
+            <Link to="#" className="nav-icon">
+              <ShoppingCart size={20} />
+            </Link>
           </div>
 
           {/* Mobile toggle */}
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="mobile-menu-button">
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -168,8 +175,8 @@ const Navbar: React.FC = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden absolute left-0 right-0 top-full bg-black z-50 border-b border-gray-700 shadow-lg">
-          <div className="px-2 py-4">
+        <div className="mobile-menu">
+          <div className="mobile-menu-content">
             <MobileAccordion items={NAV_ITEMS} onClose={() => setMenuOpen(false)} />
           </div>
         </div>
