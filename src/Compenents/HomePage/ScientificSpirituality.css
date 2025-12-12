@@ -1,0 +1,367 @@
+/* Keyframe Animations
+@keyframes playEaseIn {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+} */
+
+/* Container */
+/* .scientific-spirituality-container {
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* Content Wrapper */
+/* .content-wrapper {
+  background-color: #021844;
+  padding: 64px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 32px;
+} */
+
+/* Text Section */
+/* .text-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-weight: 300;
+  color: #ffc13c;
+  font-size: 24px;
+  margin: 0;
+}
+
+.spacer {
+  height: 32px;
+}
+
+.section-description {
+  color: white;
+  margin-bottom: 32px;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cta-button {
+  background-color: #ffc13c;
+  color: #021844;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+} */
+
+/* Image Grid Section */
+/* .image-grid-section {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid-row:last-child {
+  margin-bottom: 0;
+} */
+
+/* Media Card */
+/* .media-card {
+  width: 100%;
+  aspect-ratio: 5/3;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.media-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+} */
+
+/* Hover Overlay */
+/* .hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.media-card:hover .hover-overlay {
+  opacity: 0.4;
+} */
+
+/* Play Button Overlay */
+/* .play-button-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.play-button-wrapper {
+  position: relative;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-card:hover .play-button-wrapper {
+  opacity: 1;
+  animation: playEaseIn 0.5s ease-in forwards;
+}
+
+.play-button-outer {
+  position: absolute;
+  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-button-inner {
+  position: relative;
+  background-color: #021844;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  width: 64px;
+  height: 64px;
+}
+
+.play-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+} */
+
+/* Media Title */
+/* .media-title {
+  position: absolute;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.title-bottom {
+  bottom: 0;
+  left: 0;
+}
+
+.title-top {
+  top: 0;
+  left: 0;
+} */
+
+/* Hide Mobile Class */
+/* .hide-mobile {
+  display: none;
+} */
+
+/* Responsive Styles */
+/*  */
+
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: #021844;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    /* margin-bottom: 20px; */
+    gap:20px;
+}
+
+.text-section {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    line-height: 1.8;
+    font-size: 16px;
+    padding-top: 40px ;
+}
+
+.section-title {
+    font-size: 34px;
+    margin-bottom: 24px;
+    color: #ffc13c;
+}
+
+.section-description {
+    text-align: justify;
+    color: white;
+    margin-bottom: 18px;
+    
+}
+.button-container {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 20px;
+    
+}
+.cta-button{
+    text-decoration: none;
+    color: #021844;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffc13c;
+    border-radius : 5px;
+}
+.arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+.image-grid-section{
+    width: 50%;
+    gap: 16px;
+}
+.grid-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.media-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 5/4;
+}
+
+.hover-overlay{
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.play-icon {
+  width: 32px; 
+  height: 32px;
+  margin-left: 4px;
+} 
+
+/* .media-card:hover .hover-overlay {
+  opacity: 0.4;
+}  */
+
+.play-button-overlay {
+    position: absolute;
+    inset:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.play-button-inner {
+  position: relative;
+  background-color: #021844;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
+.media-card:hover .play-button-wrapper {
+  opacity: 1;
+  animation: playEaseIn 0.5s ease-in forwards;
+}
+
+.play-button-wrapper {
+  position: relative;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+
